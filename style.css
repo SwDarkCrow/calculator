@@ -5,27 +5,23 @@
 body {
   background-color: #1e1e2e;
   color: #cdd6f4;
-  display: flex;
-  justify-content: center;
 }
 
 .grid-container {
-  flex: 1 1 250px;
   background-color: #11111B;
-  max-width: 50vh;
-  min-width: 250px;
+  height: 90vh;
+  aspect-ratio: 4/6;
+  margin: auto;
   display: grid;
-  column-count: 4;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }
 
-.grid-container > button {
-  display: inline-block;
-  padding: 20px;
-  aspect-ratio: 1;
-}
+/*.grid-container > button {*/
+
+/*}*/
 
 .display {
-  grid-column: 1/5;
-  padding: 50px;
+  grid-column: span 4;
+  grid-row: span 1;
 }
