@@ -5,6 +5,7 @@
 body {
   background-color: #1e1e2e;
   color: #cdd6f4;
+  font-family: monospace;
 }
 
 .grid-container {
@@ -17,11 +18,15 @@ body {
   grid-template-rows: repeat(6, 1fr);
 }
 
-/*.grid-container > button {*/
-
-/*}*/
-
 .display {
   grid-column: span 4;
   grid-row: span 1;
+}
+
+button {
+  font-size: 2rem;
+}
+
+#zero {
+  grid-column: span 2;
 }
