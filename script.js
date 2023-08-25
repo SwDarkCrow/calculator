@@ -17,3 +17,7 @@ function operate(operator, a, b) {
   return result;
 }
 
+const display = document.querySelector('.display');
+function putOnDisplay(string = '0'){
+  display.textContent = string;
+}
