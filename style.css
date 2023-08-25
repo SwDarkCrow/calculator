@@ -5,4 +5,27 @@
 body {
   background-color: #1e1e2e;
   color: #cdd6f4;
+  display: flex;
+  justify-content: center;
+}
+
+.grid-container {
+  flex: 1 1 250px;
+  background-color: #11111B;
+  max-width: 50vh;
+  min-width: 250px;
+  display: grid;
+  column-count: 4;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-container > button {
+  display: inline-block;
+  padding: 20px;
+  aspect-ratio: 1;
+}
+
+.display {
+  grid-column: 1/5;
+  padding: 50px;
 }
