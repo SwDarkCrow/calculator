@@ -1,7 +1,9 @@
 # calculator
 
-odin project's project
+Still a work in progress
 
-works just like a calculator
+Odin Project's project
+
+Works just like a calculator
 
 N.B.: calculations are done from left to right (e.g. 12 + 7 - 5 * 3 = 42)
