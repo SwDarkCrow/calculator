@@ -6,28 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="style.css" rel="stylesheet">
     <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/baa47967c1.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="grid-container">
-      <div class="display"></div>
+      <div class="display">
+        <div id="centered-display">
+          0
+        </div>
+      </div>
       <button id="clear" type="button">C</button>
-      <button id="negative" type="button">+/-</button>
-      <button id="percentage" type="button">%</button>
-      <button id="divide" type="button">/</button>
-      <button id="seven" type="button">7</button>
-      <button id="eight" type="button">8</button>
-      <button id="nine" type="button">9</button>
-      <button id="times" type="button">x</button>
-      <button id="four" type="button">4</button>
-      <button id="five" type="button">5</button>
-      <button id="six" type="button">6</button>
-      <button id="minus" type="button">-</button>
-      <button id="one" type="button">1</button>
-      <button id="two" type="button">2</button>
-      <button id="three" type="button">3</button>
-      <button id="plus" type="button">+</button>
-      <button id="zero" type="button">0</button>
-      <button id="comma" type="button">.</button>
+      <button class="operand" id="negative" type="button">+/-</button>
+      <button class="operand" id="percentage" type="button">%</button>
+      <button class="operand" id="divide" type="button">/</button>
+      <button class="digit" id="seven" type="button">7</button>
+      <button class="digit" id="eight" type="button">8</button>
+      <button class="digit" id="nine" type="button">9</button>
+      <button class="operand" id="times" type="button">x</button>
+      <button class="digit" id="four" type="button">4</button>
+      <button class="digit" id="five" type="button">5</button>
+      <button class="digit" id="six" type="button">6</button>
+      <button class="operand" id="minus" type="button">-</button>
+      <button class="digit" id="one" type="button">1</button>
+      <button class="digit" id="two" type="button">2</button>
+      <button class="digit" id="three" type="button">3</button>
+      <button class="operand" id="plus" type="button">+</button>
+      <button class="digit" id="zero" type="button">0</button>
+      <button class="digit" id="comma" type="button">.</button>
+      <button class="digit" id="delete" type="button"><i class="fa-solid fa-delete-left"></i></button>
       <button id="equal" type="button">=</button>
     </div> 
   </body>
