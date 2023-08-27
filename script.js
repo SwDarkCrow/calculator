@@ -17,14 +17,26 @@ function operate(operator, a, b) {
   return result;
 }
 
-let display = document.getElementById('centered-display');
-function putOnDisplay(string = '0'){
-  if (display.textContent.length >= 13) return;
-  if (display.textContent == '0') {
-    display.textContent = string;
-    return;
+let firstNumber;
+let operator = null;
+let secondNumber;
+
+function whatGoesOnDisplay(currentNumber, digit){
+  if (currentNumber.length >= 13) return currentNumber;
+  if (currentNumber == '0') {
+    return digit;
   }
-  display.textContent += string;
+  return currentNumber += digit;
+}
+
+let display = document.getElementById('centered-display');
+function putOnDisplay(digit = '0'){
+  display.textContent = whatGoesOnDisplay(display.textContent, digit);
+  if (operator === null){
+    firstNumber = display.textContent;
+  } else {
+    secondNumber = display.textContent;
+  }
 }
 
 const digits = document.querySelectorAll('.digit');
