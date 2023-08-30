@@ -1,4 +1,5 @@
 function operate(newOperator = null) {
+  firstNumber = firstNumber === '' ? '0' : firstNumber;
   switch (operator) {
     case '+':
       firstNumber = +firstNumber + +secondNumber;
@@ -19,7 +20,7 @@ function operate(newOperator = null) {
       break;
   }
   putOnDisplay(firstNumber);
-  firstNumber = firstNumber === 'Error' ? '' : firstNumber;
+  firstNumber = firstNumber === 'Error' ? '' : firstNumber.toString();
   secondNumber = '';
   operator = newOperator;
 }
@@ -33,7 +34,7 @@ let display = document.getElementById('centered-display');
 
 function displayLogic(digit){
   if (digit.length >= 13) return 'Error';
-  if (digit === '0') return digit;
+  if (digit === '') return '0';
   return digit;
 }
 
@@ -81,7 +82,6 @@ function resetOperandsStyle(){
 
 const equalButton = document.querySelector('#equal');
 equalButton.addEventListener('click', () => {
-  if (firstNumber === '') return;
   if (operator === null) return;
   if (secondNumber === '') return;
   resetOperandsStyle();
@@ -89,7 +89,13 @@ equalButton.addEventListener('click', () => {
 });
 
 function deleteLastDigit(){
-
+  if (secondNumber === '') {
+    firstNumber = firstNumber.slice(0, -1);
+    putOnDisplay(firstNumber);
+  } else {
+    secondNumber = secondNumber.slice(0, -1);
+    putOnDisplay(secondNumber);
+  }
 }
 
 const clearButton = document.querySelector('#clear');
