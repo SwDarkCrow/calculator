@@ -10,10 +10,15 @@ function operate(newOperator = null) {
       firstNumber *= +secondNumber;
       break;
     case '/':
-      firstNumber /= +secondNumber;
+      if (secondNumber === '0') {
+        firstNumber = 'Error';
+      } else {
+        firstNumber /= +secondNumber;
+      }
       break;
   }
   putOnDisplay(firstNumber);
+  firstNumber = firstNumber === 'Error' ? '0' : firstNumber;
   secondNumber = '';
   operator = newOperator;
 }
