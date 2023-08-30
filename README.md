@@ -1,7 +1,5 @@
 # calculator
 
-Still a work in progress
-
 Odin Project's project
 
 Works just like a calculator
