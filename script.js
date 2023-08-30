@@ -1,42 +1,37 @@
-function operate(operator, a, b) {
-  let result = a;
+function operate(newOperator = null) {
   switch (operator) {
     case '+':
-      result += b;
+      firstNumber += +secondNumber;
       break;
     case '-':
-      result -= b;
+      firstNumber -= +secondNumber;
       break;
     case '*':
-      result *= b;
+      firstNumber *= +secondNumber;
       break;
     case '/':
-      result /= b;
+      firstNumber /= +secondNumber;
       break;
   }
-  return result;
+  putOnDisplay(firstNumber);
+  secondNumber = '';
+  operator = newOperator;
 }
 
-let firstNumber;
+let firstNumber = '';
 let operator = null;
-let secondNumber;
+let secondNumber = '';
+let display = document.getElementById('centered-display');
+let displayFirstNumber = true;
 
-function whatGoesOnDisplay(currentNumber, digit){
-  if (currentNumber.length >= 13) return currentNumber;
-  if (currentNumber == '0') {
-    return digit;
-  }
-  return currentNumber += digit;
+function displayLogic(digit){
+  if (digit.length >= 13) return 'Error';
+  if (digit === '0') return digit;
+  return digit;
 }
 
-let display = document.getElementById('centered-display');
 function putOnDisplay(digit = '0'){
-  display.textContent = whatGoesOnDisplay(display.textContent, digit);
-  if (operator === null){
-    firstNumber = display.textContent;
-  } else {
-    secondNumber = display.textContent;
-  }
+  display.textContent = displayLogic(digit);
 }
 
 const digits = document.querySelectorAll('.digit');
@@ -46,8 +41,35 @@ for (const digit of Array.from(digits)){
       deleteLastDigit();
       return;
     }
-    putOnDisplay(digit.textContent);
+    if (displayFirstNumber) {
+      firstNumber = firstNumber.concat(digit.textContent);
+      putOnDisplay(firstNumber);
+    } else {
+      secondNumber = secondNumber.concat(digit.textContent);
+      putOnDisplay(secondNumber);
+    }
   });
+}
+
+const operands = document.querySelectorAll('.operand');
+for (const operand of Array.from(operands)){
+  operand.addEventListener('click', () => {   
+    if (operator === null) {
+      operator = operand.textContent;
+      operand.style.backgroundColor = '#94e2d5'
+      displayFirstNumber = false;
+    } else {
+      resetOperandsStyle();
+      operand.style.backgroundColor = '#94e2d5'
+      operate(operand.textContent);
+    }
+  });
+}
+
+function resetOperandsStyle(){
+  for (const operand of Array.from(operands)){
+    operand.style.backgroundColor = '#89b4fa';   
+  }
 }
 
 function deleteLastDigit(){
