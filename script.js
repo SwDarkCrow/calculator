@@ -1,12 +1,12 @@
 function operate(newOperator = null) {
   switch (operator) {
     case '+':
-      firstNumber += +secondNumber;
+      firstNumber = +firstNumber + +secondNumber;
       break;
     case '-':
       firstNumber -= +secondNumber;
       break;
-    case '*':
+    case 'x':
       firstNumber *= +secondNumber;
       break;
     case '/':
