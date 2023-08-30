@@ -55,10 +55,12 @@ for (const digit of Array.from(digits)){
     }
     if (displayFirstNumber) {
       if (firstNumber.length >= 13) return;
+      if (firstNumber.includes('.') && digit.id === 'comma') return;
       firstNumber = firstNumber === '0' ? digit.textContent : firstNumber.concat(digit.textContent)
       putOnDisplay(firstNumber);
     } else {
       if (secondNumber.length >= 13) return;
+      if (secondNumber.includes('.') && digit.id === 'comma') return;
       secondNumber = secondNumber.concat(digit.textContent);
       putOnDisplay(secondNumber);
     }
