@@ -77,6 +77,15 @@ function resetOperandsStyle(){
   }
 }
 
+const equalButton = document.querySelector('#equal');
+equalButton.addEventListener('click', () => {
+  if (firstNumber === '') return;
+  if (operator === null) return;
+  if (secondNumber === '') return;
+  resetOperandsStyle();
+  operate();
+});
+
 function deleteLastDigit(){
 
 }
