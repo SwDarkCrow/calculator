@@ -62,6 +62,14 @@ for (const digit of Array.from(digits)){
 const operands = document.querySelectorAll('.operand');
 for (const operand of Array.from(operands)){
   operand.addEventListener('click', () => {   
+    if (operand.textContent === '+/-') {
+      negativeCurrentNumber();
+      return;
+    }
+    if (operand.textContent === '%') {
+      percentCurrentNumber();
+      return;
+    }
     if (operator === null) {
       operator = operand.textContent;
       operand.style.backgroundColor = '#94e2d5'
@@ -72,6 +80,26 @@ for (const operand of Array.from(operands)){
       operate(operand.textContent);
     }
   });
+}
+
+function negativeCurrentNumber(){
+  if (secondNumber === '') {
+    firstNumber = +firstNumber * -1;
+    putOnDisplay(firstNumber);
+  } else {
+    secondNumber = +secondNumber * -1;
+    putOnDisplay(secondNumber);
+  }
+}
+
+function percentCurrentNumber(){
+  if (secondNumber === '') {
+    firstNumber = +firstNumber / 100;
+    putOnDisplay(firstNumber);
+  } else {
+    secondNumber = +secondNumber / 100;
+    putOnDisplay(secondNumber);
+  }
 }
 
 function resetOperandsStyle(){
@@ -104,6 +132,7 @@ clearButton.addEventListener('click', clear);
 function clear(){
   firstNumber = '0';
   operator = null;
+  resetOperandsStyle();
   secondNumber = '';
   displayFirstNumber = true;
   putOnDisplay();
