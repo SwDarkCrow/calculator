@@ -36,13 +36,13 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
-  font-size: 4rem;
-  line-height: 3.5rem;
+  font-size: 2.8rem;
+  line-height: 2.45rem;
   text-align: right;
 }
 
 button {
-  font-size: 2rem;
+  font-size: 1.4rem;
   border-radius: 10px;
   padding: 0;
   border: 0;

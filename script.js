@@ -33,7 +33,11 @@ let displayFirstNumber = true;
 let display = document.getElementById('centered-display');
 
 function displayLogic(digit){
-  if (digit.length >= 13) return 'Error';
+  digit = digit.toString();
+  if (digit.length > 13) {
+    if (digit.includes('.')) return digit.slice(0, 13);
+    return 'Error';
+  }
   if (digit === '') return '0';
   return digit;
 }
@@ -50,9 +54,11 @@ for (const digit of Array.from(digits)){
       return;
     }
     if (displayFirstNumber) {
+      if (firstNumber.length >= 13) return;
       firstNumber = firstNumber === '0' ? digit.textContent : firstNumber.concat(digit.textContent)
       putOnDisplay(firstNumber);
     } else {
+      if (secondNumber.length >= 13) return;
       secondNumber = secondNumber.concat(digit.textContent);
       putOnDisplay(secondNumber);
     }
